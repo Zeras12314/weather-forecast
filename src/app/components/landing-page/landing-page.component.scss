@@ -9,6 +9,27 @@
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   color: $primary-white;
-  max-width: 800px;
+  min-width: 350px;
   padding-block: $space-16;
+
+  .img-thumbnail {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0;
+    padding: 0;
+    margin-bottom: $space-4;
+  }
+
+  .search-field {
+    margin: 0 auto;
+  }
 }
+
+
+  @media (min-width: 1200px) {
+    .search-field {
+      max-width: 400px;
+    }
+  }

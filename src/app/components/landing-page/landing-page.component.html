@@ -1,6 +1,37 @@
 <section class="container landing-container text-center">
-    <h2>Your Essential Weather Forecast</h2>
-    <p>Welcome to the weather forecast web application. Please log in with your GitHub account
-        to use the application and view the weather in your city.</p>
-    <button class="btn btn-primary mt-3"><i class="bi bi-github me-3"></i>Sign in with Github</button>
+    @if(!isLoggedIn){
+    <div>
+        <h2>Your Essential Weather Forecast</h2>
+        <p>
+            Welcome to the weather forecast web application. Please log in with your GitHub account
+            to use the application and view the weather in your city.
+        </p>
+
+        <!-- Login button -->
+        <button (click)="loginWithGitHub()" class="btn btn-primary mt-3">
+            <i class="bi bi-github me-3"></i> Sign in with GitHub
+        </button>
+    </div>
+    } @else{
+    <!-- Authenticated user info -->
+    <div>
+        <div *ngIf="auth.user$ | async as user" class="mt-4">
+            <img [src]="user?.picture" alt="User" class="img-thumbnail">
+            <h4>Hi, {{ user?.nickname }}!</h4>
+            <p>{{user['accountLink'] ?? 'No github url found'}}</p>
+            <p>You are logged in with GitHub. Enjoy exploring the weather in your city!</p>
+            <!-- <pre class="text-start bg-light p-3 rounded bg-dark">{{ user | json }}</pre> -->
+              <!-- search field -->
+            <div class="input-group mb-3 search-field">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="search" class="form-control" placeholder="Location">
+            </div>
+            <button class="btn btn-secondary mt-3" (click)="logout()">
+                Logout
+            </button>
+        </div>
+    </div>
+    }
 </section>
