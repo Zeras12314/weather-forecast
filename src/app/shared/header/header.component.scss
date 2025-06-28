@@ -1,0 +1,16 @@
+@use "../../../styles/styles.custom.scss" as *;
+
+.navbar {
+  .logo {
+    font-size: $fs-heading;
+    color: $color-primary-white;
+    cursor: pointer;
+  }
+  .nav-links {
+    &-item {
+      color: $color-primary-white;
+      font-size: $fs-paragraph;
+      cursor: pointer;
+    }
+  }
+}
