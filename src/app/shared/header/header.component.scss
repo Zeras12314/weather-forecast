@@ -1,15 +1,16 @@
-@use "../../../styles/styles.custom.scss" as *;
+@use "../../../styles/tokens.scss" as *;
 
 .navbar {
   .logo {
-    font-size: $fs-heading;
-    color: $color-primary-white;
+    font-size: $heading;
+    color: $primary-white;
     cursor: pointer;
+    color: $primary-white;
   }
   .nav-links {
     &-item {
-      color: $color-primary-white;
-      font-size: $fs-paragraph;
+      color: $primary-white;
+      font-size: $paragraph;
       cursor: pointer;
     }
   }
