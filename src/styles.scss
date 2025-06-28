@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use "./styles/styles.reset.scss" as *;
 @use "./styles/styles.custom.scss" as *;
+@use "./styles/tokens.scss" as *;
 
 @import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -11,7 +12,7 @@ body {
   background-image: url("./app/assets/images/body-bg-mobile.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  color: $color-primary-white !important;
+  color: var(--primary-white) !important;
 }
 
 @media (min-width: 1200px) {
