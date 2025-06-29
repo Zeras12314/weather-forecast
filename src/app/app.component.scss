@@ -1,3 +1,5 @@
+@use '../styles/tokens.scss' as *;
+
 .main {
-    margin-top: 96px;
+    margin-top: $space-12;
 }

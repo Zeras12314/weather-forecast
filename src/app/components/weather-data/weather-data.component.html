@@ -1,0 +1,38 @@
+@if (forecastData) {
+<div class="weather-data my-4">
+    <h3 class="table-title mb-3 text-center">Weather in {{ forecastData.name }}</h3>
+
+    <div class="table-responsive">
+        <table class="table table-bordered transparent-table">
+            <thead class="table-light">
+                <tr>
+                    <th>Date (mm/dd/yyyy)</th>
+                    <th>Temp (°F)</th>
+                    <th class="hide-mobile">Description</th>
+                    <th class="hide-mobile">Main</th>
+                    <th class="hide-mobile">Pressure</th>
+                    <th class="hide-mobile">Humidity (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Date">{{ today | date:'MM/dd/yyyy' }}</td>
+                    <td data-label="Temp (°F)">{{ forecastTempFahrenheit }}</td>
+                    <td data-label="Description" class="hide-mobile">{{ forecastData.weather[0]?.description }}</td>
+                    <td data-label="Main" class="hide-mobile">{{ forecastData.weather[0]?.main }}</td>
+                    <td data-label="Pressure" class="hide-mobile">{{ forecastData.main?.pressure }}</td>
+                    <td data-label="Humidity (%)" class="hide-mobile">{{ forecastData.main?.humidity }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+}  @else {
+  <div class="no-weather-message glass-container my-4 text-center">
+    <h4 class="mb-3">No data to display</h4>
+    <p>Go back to your profile page and enter your city to get the weather data.</p>
+    <button class="btn btn-primary mt-2" (click)="goBackToProfile()">
+      Back to Profile
+    </button>
+  </div>
+}

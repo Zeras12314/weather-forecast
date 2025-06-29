@@ -8,10 +8,12 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
   font-family: "Inter", sans-serif;
-  background-image: url("./app/assets/images/body-bg-mobile.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
+  background-image: url("./app/assets/images/body-bg-mobile.jpg");
   color: var(--primary-white) !important;
 }
 
@@ -20,3 +22,4 @@ body {
     background-image: url("./app/assets/images/body-bg-web.jpg");
   }
 }
+

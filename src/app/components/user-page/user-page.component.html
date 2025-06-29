@@ -1,0 +1,35 @@
+<div class="container glass-container text-center user-page">
+    <div *ngIf="userService.userData$ | async as user" class="mt-4">
+
+        <!-- User profile -->
+        <img [src]="user?.picture" alt="User" class="img-thumbnail mb-2">
+        <h4>Hi, {{ user?.name !== '' ? user?.name : user?.nickname }}!</h4>
+        <small>{{ user['accountLink'] ?? 'No GitHub URL found' }}</small>
+        <p class="mt-5">You are logged in with GitHub. Enjoy exploring the weather in your city!</p>
+
+        <!-- Search field -->
+        <div class="input-group my-3 search-field">
+            <span class="input-group-text">
+                <i class="bi bi-search"></i>
+            </span>
+            <input type="search" class="form-control" placeholder="Enter city" [(ngModel)]="city"
+                (keyup.enter)="validateAndNavigate()">
+            <button class="btn btn-primary" (click)="validateAndNavigate()">Get Forecast</button>
+        </div>
+
+        <!-- Logout button -->
+        <button class="btn btn-secondary mt-2" (click)="logout()">
+            Logout
+        </button>
+
+        <!-- Loading -->
+        <div *ngIf="loading" class="alert alert-info mt-3">
+            Loading forecast...
+        </div>
+
+        <!-- Error message -->
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+            {{ errorMessage }}
+        </div>
+    </div>
+</div>
