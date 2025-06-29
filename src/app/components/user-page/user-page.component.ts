@@ -7,6 +7,8 @@ import { storeService } from '../../services/store.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { FormsModule } from '@angular/forms';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
+import { User } from '../../models/user.model';
+import { ForecastData } from '../../models/forecast-data.model';
 
 @Component({
   standalone: true,
@@ -17,7 +19,7 @@ import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.comp
 })
 export class UserPageComponent implements OnInit {
   city = '';
-  forecastData: any = null;
+  forecastData?: ForecastData;
   loading = false;
   errorMessage = '';
 
@@ -29,8 +31,7 @@ export class UserPageComponent implements OnInit {
     private auth: AuthService
   ) {}
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {}
 
   validateAndNavigate(): void {
     if (!this.city.trim()) {
