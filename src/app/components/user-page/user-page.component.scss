@@ -1,0 +1,31 @@
+@use "../../../styles/tokens.scss" as *;
+
+.user-page {
+  padding-inline: $space-8;
+  .img-thumbnail {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0;
+    padding: 0;
+    margin-bottom: $space-4;
+  }
+
+  .search-field {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .search-field {
+    max-width: 400px;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $primary-white;
+}

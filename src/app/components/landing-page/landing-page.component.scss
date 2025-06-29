@@ -1,35 +1,15 @@
 @use "../../../styles/tokens.scss" as *;
 
-.landing-container {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  color: $primary-white;
-  min-width: 350px;
-  padding-block: $space-16;
-
-  .img-thumbnail {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 0;
-    padding: 0;
-    margin-bottom: $space-4;
-  }
+.landing {
+  padding-inline: $space-12;
 
   .search-field {
     margin: 0 auto;
   }
 }
 
-
-  @media (min-width: 1200px) {
-    .search-field {
-      max-width: 400px;
-    }
+@media (min-width: 1200px) {
+  .search-field {
+    max-width: 400px;
   }
+}
