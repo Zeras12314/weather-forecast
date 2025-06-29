@@ -19,6 +19,7 @@ export class WeatherDataComponent {
   constructor(private store: storeService, private router: Router) {}
 
   ngOnInit(): void {
+    
     this.forecastData = this.store.getWeatherData();
 
     if (!this.forecastData) {

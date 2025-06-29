@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 import { storeService } from '../../services/store.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { FormsModule } from '@angular/forms';
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 
 @Component({
   standalone: true,
   selector: 'app-user-page',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LoadingSpinnerComponent],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss',
 })
@@ -28,13 +29,8 @@ export class UserPageComponent implements OnInit {
     private auth: AuthService
   ) {}
 
-  ngOnInit(): void {
-    this.userService.userData$.subscribe((user) => {
-      if (!user) {
-        this.userService.initAuthUser(this.auth);
-      }
-    });
-  }
+ngOnInit(): void {
+}
 
   validateAndNavigate(): void {
     if (!this.city.trim()) {
