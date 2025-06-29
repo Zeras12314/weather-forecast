@@ -1,59 +1,130 @@
-# WeatherApp
+Weather Forecast App 🌤️
+A simple, responsive weather forecast app built with Angular.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+This was developed as a 24-hour code challenge to demonstrate UI/UX design skills, Angular best practices, clean architecture, and integration with third-party APIs (Auth0, OpenWeatherMap).
 
-## Development server
+✨ Features
+Login with GitHub using Auth0
 
-To start a local development server, run:
+Public Landing Page with welcome message and login button
 
-```bash
+Protected User Page with:
+
+User's GitHub profile picture, name, and link
+
+Search for current city weather
+
+Weather Data Page:
+
+Displays weather details for entered city
+
+Responsive design for mobile and desktop
+
+Authenticated routes protected by AuthGuard
+
+Persistent authentication with page refresh
+
+Loading spinner while data is fetched
+
+Error handling for invalid city input
+
+🗂️ Project Structure
+Organized to follow enterprise-level Angular best practices:
+
+src/
+├── app/
+│   ├── components/
+│   │   ├── landing-page/
+│   │   ├── user-page/
+│   │   ├── weather-data/
+│   │   ├── loading-spinner/
+│   │   └── shared/
+│   │       └── header/
+│   ├── services/
+│   │   ├── user.service.ts
+│   │   └── store.service.ts
+│   ├── guards/
+│   │   └── auth.guard.ts
+│   ├── models/
+│   │   ├── forecast-data.model.ts
+│   │   └── user.model.ts
+│   └── app.routes.ts
+└── styles/
+    ├── _color.tokens.scss
+    ├── _font.tokens.scss
+    ├── _space.tokens.scss
+    └── styles.scss
+
+✅ Components: LandingPage, UserPage, WeatherData, Header, LoadingSpinner
+✅ Shared Components: A dedicated shared folder for reusable UI elements. Developers can easily add more shared components here.
+✅ Services:
+
+userService for authentication, user data, and session management
+
+storeService for weather data persistence across routes
+✅ Guards: AuthGuard to protect authenticated routes
+✅ Models: Strongly typed interfaces for User and ForecastData
+
+🎨 UI/UX Design with Adobe XD
+Before development, I created a custom UI design in Adobe XD specifically for this challenge:
+
+Planned layout, typography, colors, and spacing
+
+Included both mobile and desktop breakpoints
+
+Ensured consistent design language throughout the app
+
+Served as a single source of truth for building responsive, reusable components
+
+Demonstrated a professional design-to-code workflow
+
+This step was optional in the challenge, but I included it to showcase my "eye for design" and how I work in real-world projects where design and development are closely aligned.
+
+💻 Styling and Theming
+SCSS modules with clear, atomic tokens:
+
+Color tokens for consistent theme colors
+
+Font tokens for typography
+
+Spacing tokens for layout and responsiveness
+
+Global SCSS imports for easy maintenance
+
+Responsive media queries for mobile-first design
+
+⚙️ Tech Stack
+Angular (standalone components)
+
+TypeScript with strict typing
+
+Auth0 (GitHub OAuth2)
+
+OpenWeatherMap API
+
+Bootstrap for layout and responsive grid
+
+Adobe XD for UI design
+
+🚀 Getting Started
+Clone the repo:
+git clone https://github.com/yourusername/weather-forecast-app.git
+cd weather-forecast-app
+Install dependencies:
+npm install
+
+Run locally:
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+✅ Auth0 Setup
+Note: You'll need your own Auth0 app.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Create an Auth0 Application
 
-```bash
-ng generate component component-name
-```
+Enable GitHub social connection
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Add your callback URL
 
-```bash
-ng generate --help
-```
+Configure auth_config.json if needed
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
