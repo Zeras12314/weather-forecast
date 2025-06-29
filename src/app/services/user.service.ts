@@ -19,6 +19,13 @@ export class userService {
 
   initAuthUser(auth: AuthService) {
     this.isLoadingSubject.next(true);
+
+    // listen to authentication status
+    auth.isAuthenticated$.subscribe((status) => {
+      this.setIsLoggedIn(status);
+    });
+
+    // listen to user profile
     auth.user$.subscribe((user) => {
       this.setUserData(user);
       this.isLoadingSubject.next(false);

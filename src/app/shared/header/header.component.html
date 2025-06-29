@@ -1,13 +1,13 @@
 <nav class="navbar bg-body-transparent mt-3">
-    <div class="container-fluid">
-        <a class="navbar-brand logo">forecast</a>
-        <div class="d-flex justify-content-center nav-links gap-lg-5">
-            <a routerLink="/" class="navbar-brand text-primary-white nav-links-item">Landing</a>
-            @if(isLoggedIn) {
-            <a routerLink="/user-page" class="navbar-brand text-primary-white nav-links-item">Home</a>
-            <a routerLink="/weather-data" class="navbar-brand text-primary-white nav-links-item">Weather</a>
-            }
+  <div class="container-fluid">
+    <a class="navbar-brand logo">forecast</a>
+    <div class="d-flex justify-content-center nav-links gap-lg-5">
+      <a routerLink="/" class="navbar-brand text-primary-white nav-links-item">Landing</a>
 
-        </div>
+      @if (isLoggedIn) {
+        <a routerLink="/user-page" class="navbar-brand text-primary-white nav-links-item">Home</a>
+        <a routerLink="/weather-data" class="navbar-brand text-primary-white nav-links-item">Weather</a>
+      }
     </div>
+  </div>
 </nav>

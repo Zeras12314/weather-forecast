@@ -27,12 +27,17 @@
         </table>
     </div>
 </div>
-}  @else {
-  <div class="no-weather-message glass-container my-4 text-center">
+<div class="text-end">
+  <button class="btn btn-primary" (click)="goBackToProfile()">
+    Back to Profile
+  </button>
+</div>
+} @else {
+<div class="no-weather-message glass-container my-4 text-center">
     <h4 class="mb-3">No data to display</h4>
     <p>Go back to your profile page and enter your city to get the weather data.</p>
     <button class="btn btn-primary mt-2" (click)="goBackToProfile()">
-      Back to Profile
+        Back to Profile
     </button>
-  </div>
+</div>
 }
