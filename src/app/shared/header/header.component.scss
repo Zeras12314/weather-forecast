@@ -14,4 +14,9 @@
       cursor: pointer;
     }
   }
+  .active-nav {
+    border-bottom: 2px solid $primary-white;
+    font-weight: 600;
+    color: $primary-white !important;
+  }
 }
