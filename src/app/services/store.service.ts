@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { ForecastData } from '../models/forecast-data.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +9,11 @@ export class storeService {
 
   constructor() {}
 
-  setWeatherData(data: any): void {
+  setWeatherData(data: ForecastData): void {
     this._weatherData = data;
   }
 
-  getWeatherData(): any {
+  getWeatherData(): ForecastData {
     return this._weatherData;
   }
 

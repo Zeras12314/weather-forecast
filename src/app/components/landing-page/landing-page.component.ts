@@ -14,23 +14,22 @@ import { userService } from '../../services/user.service';
 export class LandingPageComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
   private authSub?: Subscription;
-  githubBtnLabel: string = 'Sign in with Github'
+  githubBtnLabel: string = 'Sign in with Github';
 
-  constructor(
-    public auth: AuthService,
-    private userService: userService,
-  ) {}
+  constructor(public auth: AuthService, private userService: userService) {}
 
   ngOnInit(): void {
     this.authSub = this.auth.isAuthenticated$.subscribe((isAuth) => {
       this.isLoggedIn = isAuth;
       this.userService.setIsLoggedIn(isAuth);
-      this.githubBtnLabel = this.isLoggedIn ? 'You are already signed In' : 'Sign in with Github';
+      this.githubBtnLabel = this.isLoggedIn
+        ? 'You are already signed In'
+        : 'Sign in with Github';  
     });
 
-      this.auth.user$.subscribe((user) => {
-    this.userService.setUserData(user);
-  });
+    this.auth.user$.subscribe((user) => {
+      this.userService.setUserData(user ?? null);
+    });
   }
 
   ngOnDestroy(): void {

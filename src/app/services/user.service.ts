@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { BehaviorSubject } from 'rxjs';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ export class userService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  private userDataSubject = new BehaviorSubject<any>(null);
+  private userDataSubject = new BehaviorSubject<User | null>(null);
   userData$ = this.userDataSubject.asObservable();
 
   private isLoadingSubject = new BehaviorSubject<boolean>(false);
@@ -27,7 +28,7 @@ export class userService {
 
     // listen to user profile
     auth.user$.subscribe((user) => {
-      this.setUserData(user);
+      this.setUserData(user ?? null);
       this.isLoadingSubject.next(false);
     });
   }
@@ -36,7 +37,7 @@ export class userService {
     this.isLoggedInSubject.next(status);
   }
 
-  setUserData(user: any) {
+  setUserData(user: User | null): void {
     this.userDataSubject.next(user);
   }
 }

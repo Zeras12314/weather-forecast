@@ -18,10 +18,10 @@
                 <tr>
                     <td data-label="Date">{{ today | date:'MM/dd/yyyy' }}</td>
                     <td data-label="Temp (°F)">{{ forecastTempFahrenheit }}</td>
-                    <td data-label="Description" class="hide-mobile">{{ forecastData.weather[0]?.description }}</td>
-                    <td data-label="Main" class="hide-mobile">{{ forecastData.weather[0]?.main }}</td>
-                    <td data-label="Pressure" class="hide-mobile">{{ forecastData.main?.pressure }}</td>
-                    <td data-label="Humidity (%)" class="hide-mobile">{{ forecastData.main?.humidity }}</td>
+                    <td data-label="Description" class="hide-mobile">{{ forecastData.weather[0].description }}</td>
+                    <td data-label="Main" class="hide-mobile">{{ forecastData.weather[0].main }}</td>
+                    <td data-label="Pressure" class="hide-mobile">{{ forecastData.main.pressure }}</td>
+                    <td data-label="Humidity (%)" class="hide-mobile">{{ forecastData.main.humidity }}</td>
                 </tr>
             </tbody>
         </table>

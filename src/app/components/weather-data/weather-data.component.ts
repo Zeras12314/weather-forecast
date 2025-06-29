@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { storeService } from '../../services/store.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { ForecastData } from '../../models/forecast-data.model';
 
 @Component({
   standalone: true,
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './weather-data.component.scss',
 })
 export class WeatherDataComponent {
-  forecastData: any;
+  forecastData?: ForecastData;
   errorMessage = '';
   today = new Date();
   forecastTempFahrenheit?: number;
@@ -20,7 +21,7 @@ export class WeatherDataComponent {
 
   ngOnInit(): void {
     
-    this.forecastData = this.store.getWeatherData();
+    this.forecastData = this.store.getWeatherData() as ForecastData;
 
     if (!this.forecastData) {
       this.errorMessage = 'No weather data found. Please search again.';
